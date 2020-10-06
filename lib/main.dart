@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print('Saved');
     print(isNameStored);
     print(isUserNameStored);
-    var response = await http.get('http://192.168.1.41:3000/' + name + '/' + username);
+    var response = await http.get('https://garrud-employee-locator.herokuapp.com:3000/' + name + '/' + username);
     print(response.body);
     getName();
   }
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void sendLocation(location) async {
-    var response = await http.post('http://192.168.1.41:3000/' + this.name + '/' + this.username, body: jsonEncode(<String, String>{
+    var response = await http.post('https://garrud-employee-locator.herokuapp.com:3000/' + this.name + '/' + this.username, body: jsonEncode(<String, String>{
       'lat': location.latitude.toString(),
       'lng': location.longitude.toString()
     }), headers: <String, String>{
